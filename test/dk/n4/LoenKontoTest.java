@@ -13,7 +13,10 @@ public class LoenKontoTest {
     public void setSaldo() throws Exception {
         LoenKonto konto = new LoenKonto();
         konto.setSaldo(100);
-        assertTrue("Kontoen må ikke være i minus!", true);
+        Boolean erKontoiMinus;
+        if (konto.getSaldo() >= 0) { erKontoiMinus = false;}
+        else { erKontoiMinus = true; }
+        assertFalse("Kontoen må ikke være i minus!", erKontoiMinus);
     }
 
 }
